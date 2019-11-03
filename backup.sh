@@ -1,12 +1,9 @@
 #!/bin/bash
-indomain (){
-	echo "======================================="
-	read -p "Backup website:" domain
-}
-indomain
+echo "======================================="
+read -p "Backup website:" domain
 while [ ! -d $domain ]; do
 	echo "$domain not found, please try again"
-	indomain	
+	read -p "Backup website:" domain	
 done
 
 #Check config
