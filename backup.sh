@@ -3,7 +3,6 @@ indomain (){
 	echo "======================================="
 	read -p "Backup website:" domain
 }
-
 indomain
 while [ ! -d $domain ]; do
 	echo "$domain not found, please try again"
@@ -29,12 +28,10 @@ pass=$(grep DB_PASSWORD $config | awk -F\' '{print$4}')
 
 #Delete backup old & create backup
 rm -rf $backup && mkdir -p $bkdir
-
 timeout 3 wget -q script.lehait.net/restore.sh -O "$bkdir"restore.sh
 while [ ! -f $bkdir/restore.sh ]; do
 	timeout 3 wget -q script.lehait.net/restore.sh -O "$bkdir"restore.sh
 done
-
 #Backup database
 mysqldump --user $user --password=$pass $db > $bkdir/backup.sql
 if [ $? -eq 0 ] ; then
@@ -53,24 +50,20 @@ rhost (){
 	read -p "Username SFTP:" acc
 	scp -r -P 9090 $bkdir $acc@$host:/home/$acc/
 }
-
 rhost
 while [ $? -ge 1 ]; do
 	echo "Connect fail, please try again"
 	rhost
 done
-
 rm -rf $bkdir
 rssh(){
     echo "======================================="
 	echo "Password connect SSH Server"
 	ssh -p 9090 $acc@$host "cd backup && sh restore.sh"
 }
-
 rssh
 while [ $? -ge 1 ]; do
 	echo "Connect fail, please try again"
 	rssh
 done
 exit
-
