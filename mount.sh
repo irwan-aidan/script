@@ -1,8 +1,10 @@
 #!/bin/bash
-read -p "The folder to mount to external disk: " dir
-while [[ ! -d $dir ]]; do
-        echo "Folder $dir not found, try again"
-        read -p "The folder to mount to external disk: " dir
+while read -p "Folder need mount: " dir
+do      if [[ -d $dir ]]; then
+		break
+	else
+		echo "Folder $dir not found, try again"
+	fi
 done
 disk=`parted -l 2>&1 > /dev/null | awk -F ':' {'print $2'} | grep -Ev '[0-9]$|Warning|Read-only'`
 if [[ -n "$disk" ]]; then
