@@ -1,10 +1,9 @@
 #!/bin/bash
 echo "======================================="
 while read -p "Backup website: " domain 
-do
-	if [[ -d $domain ]]; then
+do	if [[ -d $domain ]]; then
 		break
-        else
+        else	
 		echo "$domain not found, please try again"
         fi
 done
