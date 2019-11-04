@@ -1,5 +1,5 @@
 #!/bin/bash
-read -p "The folder to mount to external disk:" dir
+read -p "The folder to mount to external disk: " dir
 while [[ ! -d $dir ]]; do
 	echo "Folder $dir not found, try again"
 	read -p "The folder to mount to external disk:" dir
