@@ -22,9 +22,8 @@ ubuntu(){
 if [ -f /etc/redhat-release ]; then
   yum update -y
   cyber && centos
-  rm -rf install* cyber*
 elif [ -f /etc/lsb-release ]; then
   apt update -y && apt upgrade -y
   cyber && ubuntu
-  rm -rf install* cyber*
 fi
+rm -rf install* cyber*
