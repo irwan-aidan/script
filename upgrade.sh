@@ -1,5 +1,13 @@
-#!bin/bash
-upgrade (){
+#!/bin/bash
+#Check OS
+if	grep -q -i "release 6" /etc/redhat-release ; then
+	echo "OS Running:`cat /etc/redhat-release`"
+	echo "Preparing to update to CentOS 7"
+	sleep 3 && upgrade
+else
+	echo "OS Running: `cat /etc/redhat-release`:No need to update"
+fi
+
 #New Centos Repository
 cat > /etc/yum.repos.d/centos-upgrade.repo <<EOF
 [centos-upgrade]
@@ -33,14 +41,3 @@ EOF
 #Delete data update
 rm -rf preupgrade* upgrade.sh
 reboot
-}
-
-#Check OS
-if	grep -q -i "release 6" /etc/redhat-release ; then
-	echo "Phien ban hien tai:`cat /etc/redhat-release`"
-	echo "Cong cu se update len Centos 7 moi nhat"
-	sleep 3
-	upgrade
-else
-	echo "Phien ban hien tai: `cat /etc/redhat-release`nen khong can update"
-fi
