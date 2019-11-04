@@ -6,6 +6,7 @@ if	grep -q -i "release 6" /etc/redhat-release ; then
 	sleep 3 && upgrade
 else
 	echo "OS Running: `cat /etc/redhat-release`:No need to update"
+	exit
 fi
 
 #New Centos Repository
