@@ -45,11 +45,11 @@ remote(){
 	scp -r -P 9090 $bkdir $acc@$host:/home/$acc/
 }
 #Connect remote hosting and tranfer file
-rscp
+remote
 #Check connect
 while [ $? -ge 1 ]; do
 	echo "Connect fail, please try again"
-	rscp
+	remote
 done
 rm -rf $bkdir
 echo "======================================="
