@@ -16,7 +16,7 @@ elif [ -f $domain/wp-config.php ]; then
 	config=$domain/wp-config.php
 else
 	echo "Config website not found"
-	sleep 3 && exit
+	exit
 fi
 #Variable
 user=$(grep DB_USER $config | awk -F\' '{print$4}')
