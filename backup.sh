@@ -1,9 +1,12 @@
 #!/bin/bash
 echo "======================================="
-read -p "Backup website:" domain
-while [ ! -d $domain ]; do
-	echo "$domain not found, please try again"
-	read -p "Backup website:" domain	
+while read -p "Backup website: " domain 
+do
+	if [[ -d $domain ]]; then
+		break
+        else
+		echo "$domain not found, please try again"
+        fi
 done
 #Variable
 bkdir=backup/
@@ -36,7 +39,7 @@ fi
 zip -r "$bkdir""$domain".zip $web -q -x $web/wp-content/cache/**\*
 echo "Backup code successful"
 echo "======================================="
-rscp (){
+remote(){
 	read -p "Server need copy website:" host
 	read -p "Username SFTP:" acc
 	scp -r -P 9090 $bkdir $acc@$host:/home/$acc/
