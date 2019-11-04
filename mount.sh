@@ -28,4 +28,3 @@ if [[ "$boot" = "Y" ]] || [[ "$boot" = "y" ]] || [[ -z "$boot" ]]; then
 fi
 #Destroy disk
 #wipefs -a /dev/vdb
-
