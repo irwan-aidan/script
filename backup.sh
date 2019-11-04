@@ -25,10 +25,10 @@ fi
 user=$(grep DB_USER $config | awk -F\' '{print$4}')
 db=$(grep DB_NAME $config | awk -F\' '{print$4}')
 pass=$(grep DB_PASSWORD $config | awk -F\' '{print$4}')
-#Delete backup old & create backup
+mkdir -p $bkdir
 wget -q script.lehait.net/restore.sh -O "$bkdir"restore.sh
 #Backup database
-mysqldump --user $user --password=$pass $db > $bkdir/backup.sql
+mysqldump --user $user --password=$pass $db > "$bkdir"backup.sql
 if [ $? -eq 0 ] ; then
 	echo "======================================="
 	echo "Backup database successful"
