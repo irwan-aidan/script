@@ -54,5 +54,6 @@ echo "Password connect SSH Server"
 ssh -p 9090 $acc@$host "cd backup && sh restore.sh"
 while [ $? -ge 1 ]; do
 	echo "Connect fail, try connect again..."
+	ssh -p 9090 $acc@$host "cd backup && sh restore.sh"
 done
 exit
