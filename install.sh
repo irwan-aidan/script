@@ -21,7 +21,7 @@ if [ -f /etc/redhat-release ]; then
   yum update -y
   cyber
   rm -rf install* cyber*
-else [ -f /etc/lsb-release ]; then
+elif [ -f /etc/lsb-release ]; then
   apt update -y && apt upgrade -y
   cyber
   rm -rf install* cyber*
