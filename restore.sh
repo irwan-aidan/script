@@ -4,7 +4,6 @@ echo "Website need restore:"
 read domain
 while [ ! -d /home/*/$domain ]; do
 	echo "$domain not found, please try again"
-	echo "Website need restore:"
 	read domain
 done
 #Delete data old 
