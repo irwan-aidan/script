@@ -8,7 +8,6 @@ menu(){
 	echo "2. Copy website to another host"
 	echo "3. Exit"
 }
-
 read_options(){
 	local choice
 	read -p "Enter choice [ 1-3 ]: " choice
@@ -22,10 +21,9 @@ read_options(){
 			wget -q script.lehait.net/backup.sh && sh backup.sh
 		;;
 		3 )  
-			exit		
+			exit && rm -f *.sh	
 		;;
 	esac
 }
-
 menu
 read_options
