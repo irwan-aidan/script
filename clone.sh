@@ -14,7 +14,7 @@ read_options(){
 	case $choice in
 
 		1)
-			wget -q script.lehait.net/clone.sh && sh clone.sh	
+			wget -q script.lehait.net/copy.sh && sh copy.sh	
 		;;
 
 		2) 
