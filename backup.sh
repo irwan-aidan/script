@@ -35,7 +35,7 @@ else
 	echo "Backup database fail"
 fi
 #Backup code
-zip -r "$bkdir""$domain".zip $web -q -x $web/wp-content/cache/**\*
+zip -r "$bkdir"backup.zip $web -q -x $web/wp-content/cache/**\*
 echo "Backup code successful"
 echo "======================================="
 remote(){
