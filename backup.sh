@@ -35,7 +35,7 @@ else
 	echo "Backup database fail"
 fi
 #Backup code
-tar -czvf "$bkdir"backup.tar.gz $web --exclude $web/wp-content/cache
+tar -cf "$bkdir"backup.tar.gz $web --exclude $web/wp-content/cache
 echo "Backup code successful"
 echo "======================================="
 remote(){
