@@ -21,7 +21,7 @@ read_options(){
 			wget -q script.lehait.net/backup.sh && sh backup.sh
 		;;
 		3 )  
-			exit && rm -f *.sh	
+			exit && rm -f copy.sh backup.sh	
 		;;
 	esac
 }
