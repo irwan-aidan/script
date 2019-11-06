@@ -2,9 +2,8 @@
 cyber(){
 	wget -O cyberpanel.sh https://cyberpanel.net/install.sh
 	chmod +x cyberpanel.sh
-	./cyberpanel.sh -v ols -c 1 -a 1 -p r << EOF
-	n
-EOF
+	echo "n" > /tmp/in.txt
+	./cyberpanel.sh -v ols -c 1 -a 1 -p r << /tmp/in.txt
 }
 #Thay doi gia tri PHP
 centos(){
